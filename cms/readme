@@ -1,0 +1,1 @@
+To make a new page copy all files from the root and put them in a new directory then open the new CradamCMS.php and replace all entries of "defaultpage" with the name of the new directory
