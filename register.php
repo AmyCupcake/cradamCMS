@@ -1,12 +1,6 @@
 <?
 session_start(); 
 include("database.php");
-	$sql = <<<MySQL_QUERY
-CREATE TABLE IF NOT EXISTS users (
-title		VARCHAR(150),
-bodytext	TEXT,
-created		VARCHAR(100)
-)
 function usernameTaken($username){
 	global $conn;
 	if(!get_magic_quotes_gpc()){
