@@ -51,8 +51,7 @@ function checkLogin(){
 function displayLogin(){
    global $logged_in;
    if($logged_in){
-      echo "<h1>Logged In!</h1>";
-      echo "Welcome <b>$_SESSION[username]</b>, you are logged in. <a href=\"logout.php\">Logout</a>";
+      echo "<b>$_SESSION[username]</b> is now logged in. <a href=\"logout.php\">Logout</a>";
    }
    else{
 ?>
