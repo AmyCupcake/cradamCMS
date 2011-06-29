@@ -60,7 +60,7 @@ function displayLogin(){
 <form action="" method="post">
 
 Username:<input type="text" name="user" maxlength="30"><br/>
-Password:<input type="password" name="pass" maxlength="30"><br/>
+Password:<input type="password" name="pass" maxlength="32"><br/>
 <input type="checkbox" name="remember">
 Remember me next time<br/>
 <input type="submit" name="sublogin" value="Login">
