@@ -1,4 +1,4 @@
-<?
+<?php
 session_start(); 
 include("database.php");
 include("login.php");
@@ -14,7 +14,7 @@ if(isset($_COOKIE['cookname']) && isset($_COOKIE['cookpass'])){
 <title>Logging Out</title>
 <body>
 
-<?
+<?php
 
 if(!$logged_in){
 	echo "<h1>Error!</h1>\n";
