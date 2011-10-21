@@ -3,18 +3,16 @@ session_start();
 include("database.php");
 function usernameTaken($username){
 	global $conn;
-	if(!get_magic_quotes_gpc()){
-	 $username = addslashes($username);
-	}
+	
 	$q = "select username from users where username = '$username'";
 	$result = mysql_query($q,$conn);
-	return (mysql_numrows($result) > 0);
+	return (mysqli_numrows($result) > 0);
 }
 
 function addNewUser($username, $password){
 	global $conn;
 	$q = "INSERT INTO users VALUES ('$username', '$password')";
-	return mysql_query($q,$conn);
+	return mysqli_query($q,$conn);
 }
 
 function displayStatus(){
@@ -45,7 +43,9 @@ if(isset($_SESSION['registered'])){
 ?>
 
 <html>
-<title>Registration Page</title>
+<head>
+	<title>Registration Page</title>
+</head>
 <body>
 
 <? displayStatus(); ?>
@@ -59,8 +59,11 @@ if(isset($_SESSION['registered'])){
 
 if(isset($_POST['subjoin'])){
 	/* Make sure all fields were entered */
-	if(!$_POST['user'] || !$_POST['pass']){
-	 die('You didn\'t fill in a required field.');
+	if(!$_POST['user']){
+		die('You didn\'t provide a Username.');
+	}
+	elseif(!$_POST['pass]){
+		die('You didn\'t provide a Password')
 	}
 
 	/* Spruce up username, check length */
@@ -88,14 +91,14 @@ else{
 ?>
 
 <html>
-<title>Registration Page</title>
+	<title>Registration Page</title>
 <body>
-<h1>Register</h1>
-<form action="<? echo $HTTP_SERVER_VARS['PHP_SELF']; ?>" method="post">
-Username:<input type="text" name="user" maxlength="30">
-Password:<input type="password" name="pass" maxlength="30">
-<input type="submit" name="subjoin" value="Join!">
-</form>
+	<h1>Register</h1>
+	<form action="<? echo $HTTP_SERVER_VARS['PHP_SELF']; ?>" method="post">
+		Username:<input type="text" name="user" maxlength="30">
+		Password:<input type="password" name="pass" maxlength="30">
+		<input type="submit" name="subjoin" value="Join!">
+	</form>
 </body>
 </html>
 <?
