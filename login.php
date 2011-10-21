@@ -90,11 +90,8 @@ if(isset($_POST['sublogin'])){
    $result = confirmUser($_POST['user'], $md5pass);
 
 
-   if($result == 1){
-      die('That username doesn\'t exist in our database.');
-   }
-   else if($result == 2){
-      die('Incorrect password, please try again.');
+   if($result == 1 |= 2){
+      die('Incorrect Username or password');
    }
 
 
