@@ -7,7 +7,9 @@ include("login.php");
 ?>
 
 <html>
-<title>Login</title>
+<head>
+  <title>Login</title>
+</head>
 <body>
 
 <? displayLogin(); ?>
